@@ -72,7 +72,7 @@ resource "aws_s3_bucket" "mybucket" {
   
 }
 ```
-Create a variable.tf fiel to dfein the variables.
+Create a variable.tf file to define the variables.
 
 vim variable.tf
 
