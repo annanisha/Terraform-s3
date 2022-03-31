@@ -115,6 +115,7 @@ You may refer to the below image:
 
 Wow!! we have successfully created a s3 bucket using terraform!!
 
-![m31 b](https://user-images.githubusercontent.com/100779249/161097008-2c08d43b-430c-4907-8e64-15aef4867e7c.png)
+![m31 b](https://user-images.githubusercontent.com/100779249/161097370-5eb5f379-9248-43f4-be62-8db8a702f874.png)
+
 
 
