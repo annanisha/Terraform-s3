@@ -15,9 +15,11 @@ You may go to terraform offical website https://www.terraform.io/downloads , cli
 
 Unzip the file and move the terraform folder to binary file location "/usr/local/bin/"
 
-You can refer to this artcile to install terraform on different opertaing systems.
+You can refer to this article to install terraform on different opertaing systems: https://learn.hashicorp.com/tutorials/terraform/install-cli
 
+2. Verify the installation
 
+Verify your instllation using command "terraform -version"
 
 ## Steps to configure a static website using terraform.
 
