@@ -7,6 +7,12 @@ You can use Amazon S3 to host a static website. So, what would be your plan if y
 
 So, lets build a static website using terraform.
 
+## Working of terraform 
+
+Terraform works by making an API call on your behalf to the provider(AWS, GCP, Azure, etc.) you defined. Now to make an API call, it first needs to be authenticated, and that is done with the help of API keys(AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY). To create an IAM user and its corresponding keys, please check this doc: https://docs.aws.amazon.com/IAM/latest/UserGuide/getting-started_create-admin-group.html
+
+Now how much permission users have will be defined with the help of an IAM policy. To attach an existing policy to the user, check this doc: https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_manage-attach-detach.html#add-policies-console
+
 ## Prerequisites.
 
 1. Install terraform
@@ -20,6 +26,8 @@ You can refer to this article to install terraform on different opertaing system
 2. Verify the installation
 
 Verify your instllation using command "terraform -version"
+
+3. Create file
 
 ## Steps to configure a static website using terraform.
 
