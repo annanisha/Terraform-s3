@@ -93,9 +93,12 @@ variable "secret_key" {
 }
 ```
 
+## Step 2
 
+Initiate terraform using command  "terraform init"
 
+## Step 3 
 
-
+Evaluates a Terraform configuration to determine the desired state of all the resources it declares using command "terraform plan"
 
 
