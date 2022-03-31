@@ -47,8 +47,19 @@ NOTE: Filename doesn’t have any special meaning for terraform as long as it en
 
 Create a s3 bucket using terraform.
 
+First you have to create a folder and provider.tf file inside the folder. Providers allow Terraform to interact with cloud providers.
+```
+provider "aws" {
+
+    region = var.region
+    access_key = var.access_key
+    secret_key =  var.secret_key
+
+}
+```
 So, we are going to create a S3 bucket using terrform, we can start writing the resource code in the main.tf file as shown below:
 
+vim main.tf
 ```
 resource "aws_s3_bucket" "mybucket" {
 
@@ -61,6 +72,28 @@ resource "aws_s3_bucket" "mybucket" {
   
 }
 ```
+Create a variable.tf fiel to dfein the variables.
+
+vim variable.tf
+
+```
+
+variable "region" {
+  
+  default = "ap-south-1"
+}
+
+variable "access_key" {
+    default =   "your access key here"
+}
+
+variable "secret_key" {
+    default = "your secret key here"
+  
+}
+```
+
+
 
 
 
