@@ -47,6 +47,21 @@ NOTE: Filename doesn’t have any special meaning for terraform as long as it en
 
 Create a s3 bucket using terraform.
 
+So, we are going to create a S3 bucket using terrform, we can start writing the resource code in the main.tf file as shown below:
+
+```
+resource "aws_s3_bucket" "mybucket" {
+
+    bucket = "s3.anishababu.tech"
+    tags = {
+
+        Name = "mybucket"
+        env = "Dev"
+    }
+  
+}
+```
+
 
 
 
