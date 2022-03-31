@@ -105,6 +105,15 @@ The output would like as shown below:
 
 ![m31plan](https://user-images.githubusercontent.com/100779249/161096088-c6c5c747-ebf1-45c2-b58e-e794dea95b25.png)
 
+## Step 4
+
+The terraform apply command performs a plan just like terraform plan does, but then actually carries out the planned changes to each resource using the relevant infrastructure provider's API. It asks for confirmation from the user before making any changes, unless it was explicitly told to skip approval.
+
+You may refer to the below image:
+
+![m31 ap](https://user-images.githubusercontent.com/100779249/161096662-5f749988-587f-4b18-8b21-32987f03dbfd.png)
+
+
 
 
 
