@@ -113,8 +113,8 @@ You may refer to the below image:
 
 ![m31 ap](https://user-images.githubusercontent.com/100779249/161096662-5f749988-587f-4b18-8b21-32987f03dbfd.png)
 
+Wow!! we have successfully created a s3 bucket using terraform!!
 
-
-
+![m31 b](https://user-images.githubusercontent.com/100779249/161097008-2c08d43b-430c-4907-8e64-15aef4867e7c.png)
 
 
