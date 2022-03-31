@@ -101,4 +101,11 @@ Initiate terraform using command  "terraform init"
 
 Evaluates a Terraform configuration to determine the desired state of all the resources it declares using command "terraform plan"
 
+The output would like as shown below:
+
+![m31plan](https://user-images.githubusercontent.com/100779249/161096088-c6c5c747-ebf1-45c2-b58e-e794dea95b25.png)
+
+
+
+
 
