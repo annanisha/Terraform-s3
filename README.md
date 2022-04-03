@@ -117,5 +117,91 @@ Wow!! we have successfully created a s3 bucket using terraform!!
 
 ![m31 b](https://user-images.githubusercontent.com/100779249/161097370-5eb5f379-9248-43f4-be62-8db8a702f874.png)
 
+## Steps 5
+
+Create an acl permission for the created bukcet.
+
+vim main.tf
+```
+resource "aws_s3_bucket_acl" "access_list" {
+  bucket = aws_s3_bucket.mybucket.id
+  acl    = "private"
+}
+```
+## Step 6
+
+Create policy for the bucket.
+
+```
+data "aws_iam_policy_document" "s3_policy" {
+  statement {
+    actions   = ["s3:GetObject"]
+    resources = ["${aws_s3_bucket.mybucket.arn}/*"]
+
+    principals {
+      type        = "AWS"
+      identifiers = [aws_cloudfront_origin_access_identity.bucketoai.iam_arn]
+    }
+  }
+}
+```
+
+## Step 7
+
+Attach the policy to the bucket.
+
+```
+resource "aws_s3_bucket_policy" "allow_access_from_another_account" {
+  bucket = aws_s3_bucket.mybucket.id
+  policy = data.aws_iam_policy_document.s3_policy.json
+}
+```
+## Step 8
+
+Upload the website file to bucket.
+
+```
+resource "aws_s3_object" "object" {
+for_each = fileset("${/path}", "**")
+bucket = aws_s3_bucket.mybucket.id
+key = each.value
+source = "${/path}${each.value}"
+etag = filemd5("${/path}${each.value}")
+content_type = lookup(tomap(var.mime_types), element(split(".", each.key), length(split(".", each.key)) - 1))
+}
+```
+
+## Step 9
+
+Gather zone ID of domain from route 53
+
+```
+data "aws_route53_zone" "selected" {
+  name         = "domain.com."
+  private_zone = false
+}
+```
+
+## Step 10
+
+Creat an alias record for the cloudfront
+
+```
+resource "aws_route53_record" "cloudfront" {
+  zone_id = data.aws_route53_zone.selected.id
+  name    = "${var.project}.${data.aws_route53_zone.selected.name}"
+  type    = "A"
+
+  alias {
+    name    =  aws_cloudfront_distribution.website_cdnnew.domain_name
+    zone_id = "${aws_cloudfront_distribution.website_cdnnew.hosted_zone_id}"
+    evaluate_target_health = false
+  }
+}
+```
+
+## Step 11
+
+Create cloudfront for the bucket.
 
 
