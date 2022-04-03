@@ -204,4 +204,3 @@ resource "aws_route53_record" "cloudfront" {
 
 Create cloudfront for the bucket.
 
-
